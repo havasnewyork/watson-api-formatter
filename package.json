@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/havasnewyork/watson-api-formatter/issues"
   },
-  "homepage": "https://github.com/havasnewyork/watson-api-formatter"
+  "homepage": "https://github.com/havasnewyork/watson-api-formatter",
+  "dependencies": {
+    "btoa": "^1.1.2"
+  }
 }
