@@ -1,0 +1,24 @@
+{
+  "name": "watson-api-formatter",
+  "version": "0.0.1",
+  "description": "API results formatter for IBM Watson",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/havasnewyork/watson-api-formatter.git"
+  },
+  "keywords": [
+    "watson",
+    "runkit",
+    "api"
+  ],
+  "author": "Kevin Haggerty <kevin@splatcollision.com> (http://splatcollision.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/havasnewyork/watson-api-formatter/issues"
+  },
+  "homepage": "https://github.com/havasnewyork/watson-api-formatter"
+}
