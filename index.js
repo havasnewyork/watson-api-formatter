@@ -12,7 +12,7 @@ var wavPlayer = function(stream, spokenText) {
 
 
 var d3_script = '<script src="//d3js.org/d3.v3.min.js"></script>';
-var dimple_script = '<script src="//dimplejs.org/dist/dimple.v2.1.6.min.js"></script>'
+var dimple_script = '<script src="//cdnjs.cloudflare.com/ajax/libs/dimple/2.2.0/dimple.latest.min.js"></script>'
 
 var getChart = function(data, options) {
   var chartid = 'chart' + uuid.v1();
