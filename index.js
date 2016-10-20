@@ -1,5 +1,6 @@
 // standardized renderer for displaying useful outputs for all common Watson APIs.
 
+var _ = require('lodash');
 var btoa = require('btoa');
 var wavPlayer = function(stream, spokenText) {
     var b64encoded = btoa(String.fromCharCode.apply(null, stream));
@@ -22,6 +23,7 @@ var getChart = function(data, options) {
     'chart.addMeasureAxis("y", "' + options.y + '");' + 
     'chart.addSeries(null, dimple.plot.' + options.type + ');' + 
     'chart.draw();' +  '</script>';
+}
 
 var summarizeTones = function (results) {
   var categories = results.document_tone.tone_categories;

@@ -1,6 +1,6 @@
 {
   "name": "watson-api-formatter",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "API results formatter for IBM Watson",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,11 @@
   },
   "homepage": "https://github.com/havasnewyork/watson-api-formatter",
   "dependencies": {
-    "btoa": "^1.1.2"
+    "btoa": "^1.1.2",
+    "lodash": "^4.16.4"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^3.1.2"
   }
 }
