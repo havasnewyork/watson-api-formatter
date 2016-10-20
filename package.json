@@ -4,7 +4,7 @@
   "description": "API results formatter for IBM Watson",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,8 @@
   "homepage": "https://github.com/havasnewyork/watson-api-formatter",
   "dependencies": {
     "btoa": "^1.1.2",
-    "lodash": "^4.16.4"
+    "lodash": "^4.16.4",
+    "uuid": "^2.0.3"
   },
   "devDependencies": {
     "assert": "^1.4.1",

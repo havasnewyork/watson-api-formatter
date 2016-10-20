@@ -1,6 +1,7 @@
 // standardized renderer for displaying useful outputs for all common Watson APIs.
 
 var _ = require('lodash');
+var uuid = require('uuid');
 var btoa = require('btoa');
 var wavPlayer = function(stream, spokenText) {
     var b64encoded = btoa(String.fromCharCode.apply(null, stream));
@@ -10,13 +11,13 @@ var wavPlayer = function(stream, spokenText) {
 }
 
 
-var d3_script = '<script src="http://d3js.org/d3.v3.min.js"></script>';
-var dimple_script = '<script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>'
+var d3_script = '<script src="//d3js.org/d3.v3.min.js"></script>';
+var dimple_script = '<script src="//dimplejs.org/dist/dimple.v2.1.6.min.js"></script>'
 
 var getChart = function(data, options) {
-
-  return d3_script + dimple_script + '<div id="" /><script type="text/javascript">' + 
-    'var svg = dimple.newSvg("body", 800, 600);' + 
+  var chartid = 'chart' + uuid.v1();
+  return d3_script + dimple_script + '<div id="' + chartid + '" /><script type="text/javascript">' + 
+    'var svg = dimple.newSvg("' + chartid + '", 800, 600);' + 
     'var data = ' + JSON.stringify(data) + ';' + 
     'var chart = new dimple.chart(svg, data);' + 
     'chart.addCategoryAxis("x", "' + options.x + '");' + 
