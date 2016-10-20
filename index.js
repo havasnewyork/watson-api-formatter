@@ -7,7 +7,7 @@ var uuid = require('uuid');
 var btoa = require('btoa');
 var wavPlayer = function(stream, spokenText) {
     var b64encoded = btoa(String.fromCharCode.apply(null, stream));
-    var player = '<!-- expand me to hear --><div id="audio_playback" />' + (spokenText ? "<h1>" + spokenText + "</h1>" : "") + "<audio autoplay controls src='data:audio/wav;base64," + b64encoded + "'>Your browser does not support the <code>audio</code> element.</audio>" + '</script>';
+    var player = getComment("audio playback") + '<div id="audio_playback" />' + (spokenText ? "<h1>" + spokenText + "</h1>" : "") + "<audio autoplay controls src='data:audio/wav;base64," + b64encoded + "'>Your browser does not support the <code>audio</code> element.</audio>" + '</script>';
     console.log(player);
     return player;
 }
@@ -28,6 +28,10 @@ var getChart = function(data, options) {
     'chart.draw();' +  '</script>';
 }
 
+var getComment = function(message) {
+  return "<!-- Expand for " + message + " results. -->";
+}
+
 var summarizeTones = function (results) {
   var categories = results.document_tone.tone_categories;
   var alltones = _.map(categories, function(cat){
@@ -42,11 +46,26 @@ var summarizeTones = function (results) {
 var formatToneAnalyzer = function(results, input) {
     var alltones = summarizeTones(results);
     var chart = getChart(alltones, {x: "tone_name", y: "score", type: "bar"});
-    console.log(chart);
+    console.log(getComment("Tone Analyzer") + chart);
+}
+
+var summarizePersonality = function(results) {
+  var all = _.map(results.tree.children, function(category){
+    return category.children[0].children;
+  });
+  return _.flatten(all)
+}
+
+var formatPersonality = function(results, input) {
+    var data = summarizePersonality(results);
+    var chart = getChart(data, {x: "name", y: "percentage", type: "bar"});
+    console.log(getComment("Personality Insights") + chart);
 }
 
 var sniffFormat = function(results) {
     if (results.document_tone) return formatToneAnalyzer(results);
+    // word_count and tree = personality insights
+    if (results.word_count && results.tree) return formatPersonality(results);
     // others here
     console.log('no format detected for results:', results);
 }
