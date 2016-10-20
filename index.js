@@ -17,7 +17,7 @@ var dimple_script = '<script src="//cdnjs.cloudflare.com/ajax/libs/dimple/2.2.0/
 var getChart = function(data, options) {
   var chartid = 'chart' + uuid.v1();
   return d3_script + dimple_script + '<div id="' + chartid + '" /><script type="text/javascript">' + 
-    'var svg = dimple.newSvg("' + chartid + '", 800, 600);' + 
+    'var svg = dimple.newSvg("#' + chartid + '", 800, 600);' + 
     'var data = ' + JSON.stringify(data) + ';' + 
     'var chart = new dimple.chart(svg, data);' + 
     'chart.addCategoryAxis("x", "' + options.x + '");' + 

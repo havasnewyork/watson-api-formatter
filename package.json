@@ -1,6 +1,6 @@
 {
   "name": "watson-api-formatter",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "API results formatter for IBM Watson",
   "main": "index.js",
   "scripts": {
